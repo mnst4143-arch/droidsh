@@ -32,4 +32,4 @@
 ## Documentação e entrega
 
 - [x] Documentar instalação, execução, arquitetura, comandos suportados, limites atuais e contribuição.
-- [ ] Publicar o código-fonte em um repositório GitHub pertencente ao usuário, sem expor segredos.
+- [x] Publicar o código-fonte em um repositório GitHub pertencente ao usuário, sem expor segredos.
