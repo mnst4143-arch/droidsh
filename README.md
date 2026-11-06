@@ -2,6 +2,8 @@
 
 Este repositório contém o DroidSH, um terminal Android nativo baseado na aplicação Termux. Diferentemente do protótipo Expo anterior, esta base executa comandos e pacotes reais no ambiente Linux do aplicativo. Consulte [DROIDSH.md](DROIDSH.md) para o estado da migração, compilação, compatibilidade do bootstrap e próximos passos.
 
+A interface foi reestilizada para o DroidSH: cabeçalho `DROIDSH WORKSPACE`, status de runtime, painel Aurora, ícone próprio e banner de sessão próprio. No primeiro uso, os principais pacotes de desenvolvimento são preparados em segundo plano, incluindo Node.js, Python, Nano, Git, Curl, Wget, OpenSSH, Clang, Make, CMake e FFmpeg.
+
 O código upstream da aplicação é GPLv3. As alterações de marca e documentação do DroidSH preservam os avisos e licenças dos projetos incorporados.
 
 [![Build status](https://github.com/termux/termux-app/workflows/Build/badge.svg)](https://github.com/termux/termux-app/actions)

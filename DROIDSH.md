@@ -22,6 +22,12 @@ O projeto baixa os bootstraps oficiais e valida seus checksums. Para produção,
 
 O código da aplicação nativa é derivado de `termux/termux-app` e permanece sob GPLv3. As bibliotecas `terminal-view` e `terminal-emulator` têm as exceções/licenças indicadas no arquivo `LICENSE.md`; `termux-shared` possui sua licença própria. As alterações específicas do DroidSH estão identificadas nos arquivos de marca e documentação.
 
+## Interface DroidSH
+
+A tela principal não usa a composição visual padrão do Termux. Ela possui cabeçalho próprio com o estado do workspace, marca DroidSH, painel Aurora, área de sessões e terminal nativo abaixo. O perfil inicial também mostra o banner `DROIDSH WORKSPACE` em vez da mensagem `Welcome to Termux!`.
+
+No primeiro uso, o perfil prepara em segundo plano os essenciais `nodejs-lts`, `python`, `nano`, `git`, `curl`, `wget`, `openssh`, `clang`, `make`, `cmake`, `ffmpeg` e `gh` quando esses pacotes estiverem disponíveis no repositório configurado. O comando `droidsh-status` informa se a preparação terminou. O catálogo completo continua instalável com `pkg search`, `pkg install` e `pkg upgrade`, evitando embutir milhares de pacotes obsoletos dentro do APK.
+
 ## Próxima etapa necessária
 
 O próximo passo técnico é automatizar a construção do bootstrap e do repositório de pacotes DroidSH em aarch64, arm, x86 e x86_64. Depois disso o namespace poderá deixar de ser `com.termux`, permitindo instalação lado a lado com o Termux oficial sem quebrar shebangs, caminhos do `$PREFIX` ou atualizações do `pkg`.

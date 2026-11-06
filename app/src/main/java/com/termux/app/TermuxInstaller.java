@@ -27,6 +27,7 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +108,7 @@ final class TermuxInstaller {
             if (TermuxFileUtils.isTermuxPrefixDirectoryEmpty()) {
                 Logger.logInfo(LOG_TAG, "The termux prefix directory \"" + TERMUX_PREFIX_DIR_PATH + "\" exists but is empty or only contains specific unimportant files.");
             } else {
+                installDroidshProfile(activity);
                 whenDone.run();
                 return;
             }
@@ -220,6 +222,7 @@ final class TermuxInstaller {
 
                     // Recreate env file since termux prefix was wiped earlier
                     TermuxShellEnvironment.writeEnvironmentToFile(activity);
+                    installDroidshProfile(activity);
 
                     activity.runOnUiThread(whenDone);
 
@@ -237,6 +240,28 @@ final class TermuxInstaller {
                 }
             }
         }.start();
+    }
+
+    /** Install the DroidSH banner and first-run essentials bootstrap into the real $PREFIX. */
+    private static void installDroidshProfile(Context context) {
+        File profile = new File(TERMUX_PREFIX_DIR_PATH, "etc/profile.d/00-droidsh.sh");
+        if (profile.exists()) return;
+
+        File parent = profile.getParentFile();
+        if (parent == null || (!parent.exists() && !parent.mkdirs())) {
+            Logger.logError(LOG_TAG, "Unable to create DroidSH profile directory: " + profile);
+            return;
+        }
+
+        try (InputStream input = context.getResources().openRawResource(R.raw.droidsh_profile);
+             FileOutputStream output = new FileOutputStream(profile)) {
+            byte[] buffer = new byte[4096];
+            int read;
+            while ((read = input.read(buffer)) != -1) output.write(buffer, 0, read);
+            Os.chmod(profile.getAbsolutePath(), 0700);
+        } catch (Exception e) {
+            Logger.logErrorExtended(LOG_TAG, "Unable to install DroidSH profile", e);
+        }
     }
 
     public static void showBootstrapErrorDialog(Activity activity, Runnable whenDone, String message) {

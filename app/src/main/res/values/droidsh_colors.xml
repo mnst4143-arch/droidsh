@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="droidsh_icon_background">#07111F</color>
+    <color name="droidsh_night">#07111F</color>
+    <color name="droidsh_surface">#0C1B2A</color>
+    <color name="droidsh_panel">#102438</color>
+    <color name="droidsh_line">#1B3A52</color>
+    <color name="droidsh_mint">#72F6D0</color>
+    <color name="droidsh_blue">#68B5FF</color>
+    <color name="droidsh_text">#E8F3FF</color>
+    <color name="droidsh_muted">#87A5BC</color>
+    <color name="droidsh_warning">#F6C86E</color>
 </resources>
