@@ -260,7 +260,7 @@ final class TermuxInstaller {
             while ((read = input.read(buffer)) != -1) output.write(buffer, 0, read);
             Os.chmod(profile.getAbsolutePath(), 0700);
         } catch (Exception e) {
-            Logger.logErrorExtended(LOG_TAG, "Unable to install DroidSH profile", e);
+            Logger.logErrorExtended(LOG_TAG, "Unable to install DroidSH profile\n" + e);
         }
     }
 
