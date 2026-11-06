@@ -1,67 +1,39 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+# From https://gist.github.com/iainconnor/8605514
+# with the addition of the /captures below.
+/captures
 
-# dependencies
-node_modules/
-.pnpm-store/
-*.manus-starter-[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]
+# Built application files
+build/
+release/
+*.apk
+*.so
+.externalNativeBuild
+.cxx
+*.zip
 
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
+# Local configuration file (sdk path, etc)
+local.properties
 
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
+# Gradle generated files
+.gradle/
 
-# Metro
-.metro-health-check*
+# Signing files
+.signing/
 
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
-.DS_Store
-*.pem
-
-# local env files
-.env*.local
-
-# typescript
-*.tsbuildinfo
-
-app-example
-
-# generated native folders
-/ios
-/android
-
-# IDE
-.vscode/
+# Intellij
 .idea/
-*.swp
+*.iml
+
+# Vim
 *.swo
-*~
+*.swp
 
-# Logs
-logs
-*.log
-
-# OS
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.swp
+ehthumbs.db
 Thumbs.db
-
-# Build files
-*.tgz
-*.tar.gz
-.cache/
-
-# Webdev artifacts (checkpoint zips, migrations, etc.)
-.webdev/
